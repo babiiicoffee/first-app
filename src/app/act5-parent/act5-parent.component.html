@@ -1,0 +1,45 @@
+<div>
+    <h1>Parent Component</h1>
+    Full name : <input type="text" [(ngModel)]="fname">
+    <br> Enrolled : <input type="checkbox" [(ngModel)]="enroll">
+    <br> Gender :
+    <select [(ngModel)]="genderChoice">
+    <option ng-selected="selected"></option>
+    <option >Female</option>
+    <option>Male</option>    
+  </select>
+    <br>
+    <button (click)="onSubmit()">Submit</button>
+    <br>
+    <br>
+    <p *ngIf="notif">Notification : {{notif}}</p>
+
+    <li *ngFor="let person of people">
+        {{person.name}}
+    </li>
+    <hr>
+</div>
+
+
+<!-- <div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <div class="card-title h3">Parent Component</div>
+    </div>
+    <div>
+        <label for="fullname">Full Name : </label>
+        <input type="text" [(ngModel)]="fname" id="fname">
+        <br>
+        <label for="enrolled">Enrolled : </label>
+        <input type="checkbox" [(ngModel)]="enroll">
+        <br>
+        <label for="gender">Gender : </label>
+        <select [(ngModel)]="genderChoice">
+            <option ng-selected="selected"></option>
+            <option >Female</option>
+            <option>Male</option>    
+          </select> <br>
+    </div>
+</div> -->
+
+<app-act5-child (addNotification)="notif=$event" [fullname]="fn" [enroll]="en" [gender]="genderC">
+</app-act5-child>

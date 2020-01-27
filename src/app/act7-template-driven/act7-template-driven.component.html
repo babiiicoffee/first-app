@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit()" #sampleForm="ngForm">
+    <div class="card" style="width: 20rem;margin: 5%;">
+        <div class="card-body">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">First Name : </div>
+                </div>
+                <input type="text" name="fname" [(ngModel)]="firstname" required minlength="4" #name="ngModel">
+            </div>
+            <br>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Last Name : </div>
+                </div>
+                <input type="text" name="lname" [(ngModel)]="lastname">
+            </div>
+            <br>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Password : </div>
+                </div>
+                <input type="password" name="pass" [(ngModel)]="password">
+            </div>
+            <br>
+            <button [disabled]="!sampleForm.form.valid">Submit</button>
+
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                    this is required!
+                </div>
+                <div *ngIf="name.errors.minlength">
+                    Must be atleast 4 characters!
+                </div>
+            </div>
+            <div *ngIf="name.valid" class="alert alert-success">
+                ok!
+            </div>
+        </div>
+    </div>
+</form>
